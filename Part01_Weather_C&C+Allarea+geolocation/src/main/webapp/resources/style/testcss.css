@@ -1,0 +1,283 @@
+@charset "UTF-8";
+
+.body a, .map_wrap a:hover, .map_wrap a:active {
+	color: #000;
+	text-decoration: none;
+}
+
+@font-face {
+	font-family: 'S-CoreDream-8Heavy';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-8Heavy.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.option {
+	text-align: center;
+	position: relative;
+	font-family: 'S-CoreDream-8Heavy';
+	font-size: 55px;
+	font-weight: bolder;
+	letter-spacing: 2px;
+	margin: 0;
+	padding-top: 30px;
+}
+
+#menu_wrap1 {
+	position: absolute;
+	top: 10px;
+	left: 30px;
+	bottom: 0;
+	height: 150px;
+	width: 480px;
+	margin: 10px 0 30px 10px;
+	padding: 5px;
+	overflow-y: auto;
+	z-index: 1;
+	background: rgba(255, 255, 255, 0);
+}
+
+#logo {
+	height: 80px;
+	width: 350px;
+	align: left;
+	padding-top: 20px;
+	padding-left: 10px;
+	position: relative;
+}
+
+
+#menu_wrap3 {
+	position: absolute;
+	top: 88%;
+	right: 41%;
+	background: rgba(255, 255, 255, 0);
+}
+
+.radius_border {
+	border-radius: 5px;
+}
+
+.custom_typecontrol {
+	position: absolute;
+	bottom: 8%;
+	right: 41%;
+	overflow: hidden;
+	border-radius: 5px;
+	width: auto;
+	height: 70px;
+	margin: 0;
+	z-index: 1;
+	font-size: 30px;
+	font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+}
+
+.custom_typecontrol span {
+	display: block;
+	width: 65px;
+	height: 30px;
+	float: left;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;
+}
+
+.custom_typecontrol .btn {
+	background: #fff;
+	background: linear-gradient(#fff, #e6e6e6);
+}
+
+.custom_typecontrol .btn:hover {
+	background: #f5f5f5;
+	background: linear-gradient(#f5f5f5, #e3e3e3);
+}
+
+.custom_typecontrol .btn:active {
+	background: #e6e6e6;
+	background: linear-gradient(#e6e6e6, #fff);
+}
+
+.custom_typecontrol .selected_btn {
+	color: #fff;
+	background: #425470;
+	background: linear-gradient(#425470, #5b6d8a);
+}
+
+.custom_typecontrol .selected_btn:hover {
+	color: #fff;
+}
+#myWeather, #area_Weather {
+}
+
+#myWeather, #area_Weather {
+	width: auto;
+	height: auto;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 40px;
+	padding-right: 40px;
+	font-family: 'S-CoreDream-8Heavy';
+}
+
+#nw_wather_text {
+	}
+
+
+#nw_wather_text {
+	text-shadow: 2px 3px #D5D5D5;
+	font-family: 'S-CoreDream-8Heavy';
+	width: auto;
+	height: auto;
+	background-color: #ffffff;
+	background-color: rgba(255, 255, 255, 0.5);
+	border: solid #FFFFFF;
+	border-radius: 10px;
+	font-size: 50px;
+	font-weight: bold;
+	text-align: center;
+	-webkit-transition: none;
+	transition: none;
+	padding: 30px;
+	padding-left: 50px;
+	position: relative;
+}
+
+<!--예보날씨 레이어 -->
+
+#fwWather {
+	
+}
+
+#fwWather_01 {
+	text-align: center;
+	position: relative;
+	height: 20%;
+}
+
+h3 {
+	font-family: 'S-CoreDream-8Heavy';
+	font-size: 50px;
+	color: #353535;
+	font-weight: bolder;
+	letter-spacing: 2px;
+	padding-top: 50px;
+	height: 50%;
+	margin: 0;
+}
+
+#fwWather_table {
+	margin: 0;
+}
+
+#fc {
+	width: 40%;
+	padding-top: 0;
+	padding-botton: 100px;
+	padding-right: 50px;
+	padding-left: 50px;
+}
+
+#DateTD {
+	font-family: 'S-CoreDream-8Heavy';
+	font-size: 33px;
+	border-radius: 10px;
+	text-align: center;
+	color: #353535;
+	font-weight: normal;
+	position: relative;
+	background-color: rgba(255, 216, 93, 0.7);
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#DataTD {
+	font-family: 'S-CoreDream-8Heavy';
+	font-size: 30px;
+	border-radius: 10px;
+	text-align: center;
+	color: #353535;
+	font-weight: normal;
+	position: relative;
+	padding-bottom: 40px;
+	padding-top: 25px;
+}
+
+#DataTD_now {
+	color: #D5D5D5;
+	opacity: 0.7;
+	font-family: 'S-CoreDream-8Heavy';
+	font-size: 30px;
+	border-radius: 10px;
+	text-align: center;
+	font-weight: normal;
+	position: relative;
+	padding-bottom: 40px;
+	padding-top: 25px;
+}
+
+#fwimg {
+	top:0;
+	bottom:10px;
+	height: 40px;
+	width: 60px;
+	position: relative;
+	padding-top: 5px;
+	margin: 0;
+}
+
+#areaName {
+	background:
+		url('https://t1.daumcdn.net/cfile/tistory/99761B495C84AA8716')
+		no-repeat 95, 50%;
+	border-radius: 0px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	font-size: 40px;
+	font-weight: bold;
+	font-family: 'S-CoreDream-8Heavy';
+}
+
+select::-ms-expand {
+	display: none;
+}
+
+#select_area_name{
+}	
+	
+#select_area_name{
+	text-shadow: 2px 3px #D5D5D5;
+	font-family: 'S-CoreDream-8Heavy';
+	border-radius: 15px;
+	font-weight: bold;
+	text-align: center;
+	-webkit-transition: none;
+	transition: none;
+	padding: 20px;
+	margin: 0px;
+	position: relative;
+	width: auto;
+	height: auto;	
+	font-size: 25px;
+	background-color: #ffffff;
+	background-color: rgba(255, 255, 255, 0.7);
+
+}
+
+#select_area_name:hover{
+	font-family: 'S-CoreDream-8Heavy';
+	background-color: #CBDCDF;
+	position: relative;
+}
+
+#select_area_name:active {
+	font-family: 'S-CoreDream-8Heavy';
+	background: #1a92c2;
+	background-color: #CBDCDF;
+	font-weight: bold;
+	position: relative;
+}
+

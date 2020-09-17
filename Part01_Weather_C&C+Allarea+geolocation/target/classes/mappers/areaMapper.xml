@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mapper.areaMapper">
+	
+	<!-- 지역테이블 가져오기 -->
+	<select id="selectarea" resultType="areaVO">
+		SELECT * FROM area
+	</select>
+
+	<!-- 현재날씨데이터  insert-->
+	<insert id="insertNow_weather" parameterType="com.example.dto.NowWeatherVO">
+	
+		IF EXISTS ( SELECT 1 FROM now_weather 
+		WHERE district_ID =#{district_ID}
+		AND nowTime=#{nowTime} AND nowDate=#{nowDate})
+		BEGIN
+		UPDATE now_weather
+		SET SKY =#{SKY},
+		NTH = #{NTH}
+		WHERE district_ID =#{district_ID}
+		AND nowTime=#{nowTime} AND nowDate=#{nowDate};
+		END ELSE
+		BEGIN
+		INSERT INTO now_weather VALUES(#{district_ID}, #{nowDate},#{nowTime}, #{SKY}, #{NTH}); END;
+	
+	</insert>
+
+	<!-- 현재날씨데이터  select -->
+	<select id="selectNow_weather" resultType="com.example.dto.NowWeatherVO" parameterType="com.example.dto.NowWeatherVO">
+		select * from now_weather 
+		where nowDate like(#{nowDate}) 
+		and nowTime like(#{nowTime})
+		and district_ID like('${district_ID}%');
+	</select>
+	
+	
+	<!--광역시도별 현재날씨데이터  select -->
+	<select id="area_selectNow_weather" resultType="com.example.dto.NowWeatherVO" parameterType="com.example.dto.NowWeatherVO">
+		select * from now_weather 
+		where nowDate like(#{nowDate}) 
+		and nowTime like(#{nowTime})
+		and district_ID like('${district_ID}%');
+	</select>
+	
+
+	<!-- 예보날씨데이터  insert-->
+	<insert id="insertFcast_weather" parameterType="java.util.List">
+		<foreach collection="list" item="fwList" index="index" >
+			IF EXISTS ( SELECT 1 FROM fcast_weather WHERE district_ID =#{fwList.district_ID}
+			AND fcastTime=#{fwList.fcastTime} 
+			AND fcastDate=#{fwList.fcastDate})
+			BEGIN UPDATE fcast_weather
+			SET SKY =#{fwList.SKY},
+			FTH = #{fwList.FTH}
+			WHERE district_ID =#{fwList.district_ID}
+			AND fcastTime=#{fwList.fcastTime} 
+			AND fcastDate=#{fwList.fcastDate};
+			END ELSE
+			BEGIN
+			INSERT INTO fcast_weather VALUES(#{fwList.district_ID},#{fwList.fcastTime}, #{fwList.fcastDate},#{fwList.SKY}, #{fwList.FTH}); 
+			END;
+		 </foreach>
+	</insert>
+	
+	<!-- 예보날씨데이터  select-->
+	<select id="selectFcast_weather" resultType="fwVO" parameterType="com.example.dto.FcastWeatherVO">
+		SELECT * FROM fcast_weather
+		Where district_ID like(#{district_ID})
+		AND
+		fcastDate <![CDATA[ >= ]]>#{day1}
+		AND fcastDate <![CDATA[ <= ]]>#{day3}
+		order by district_ID, fcastDate, fcastTime
+	</select>
+
+
+</mapper>
